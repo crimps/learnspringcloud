@@ -6,16 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ConfigController {
-
-    @Value("${test}")
-    private String testValue;
-
-    @Value("${info.from}")
-    private String testInfo;
+    @Value("${info.type}")
+    private String type;
 
     @GetMapping("testValue")
     public void testValue(){
-        System.out.println("####" + testValue);
-        System.out.println("####" + testInfo);
+        System.out.println("####" + type);
     }
 }
