@@ -17,4 +17,16 @@ public class DcController {
         System.out.println(services);
         return services;
     }
+
+    @GetMapping("dc-timeout")
+    public String dcTimeOut(){
+        try{Thread.sleep(5000);
+            String services = "Services: " + discoveryClient.getServices();
+            System.out.println(services);
+            return services;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
