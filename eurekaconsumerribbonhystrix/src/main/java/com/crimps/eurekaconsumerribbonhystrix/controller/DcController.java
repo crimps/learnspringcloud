@@ -11,8 +11,13 @@ public class DcController {
     @Autowired
     ConsumerService consumerService;
 
-    @GetMapping("hystrix")
-    public String dcTimeOut(){
+    @GetMapping("dc")
+    public String dc(){
         return consumerService.consumer();
+    }
+
+    @GetMapping("dc-timeout")
+    public String dcTimeOut(){
+        return consumerService.consumerTimeOut();
     }
 }

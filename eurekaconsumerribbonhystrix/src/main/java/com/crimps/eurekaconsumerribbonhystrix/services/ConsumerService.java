@@ -12,7 +12,12 @@ public class ConsumerService {
     RestTemplate restTemplate;
 
     @HystrixCommand(fallbackMethod = "fallback")
-    public String consumer() {
+    public String consumer(){
+        return restTemplate.getForObject("http://eureka-client/dc", String.class);
+    }
+
+    @HystrixCommand(fallbackMethod = "fallback")
+    public String consumerTimeOut() {
         return restTemplate.getForObject("http://eureka-client/dc-timeout", String.class);
     }
 
